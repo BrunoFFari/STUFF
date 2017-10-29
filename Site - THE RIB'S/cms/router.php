@@ -568,6 +568,29 @@
 
 
         break;
+		    
+      case 'usuario':
+          require_once('model/alterar_dados_usuario_class.php');
+          require_once('controller/alterar_dados_usuario_controller.php');
+
+          $controller_user = new ControllerAlterarDadosUsuario();
+
+          switch ($modo){
+
+            case 'alterar':
+                $controller_user->AlterarDadosUsuario();
+                break;
+
+            case 'senha':
+                $controller_user->AlterarSenha();
+                break;
+
+            default:
+                echo '<h1> Não encontrado </h1>';
+                break;
+         }
+
+        break;
   }
 
 ?>

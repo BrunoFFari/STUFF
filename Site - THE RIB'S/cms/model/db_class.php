@@ -18,8 +18,9 @@
 
     public function __construct(){
 
-       $this->server = "10.107.134.22";
+       $this->server = "localhost";
 
+        /* $this->server = "10.107.134.22";*/
         /*##Segunda e Quinta## $this->server = "10.107.144.35";*/
         //##Terça## $this->server = "10.107.134.4";
         /*##Quarta## $this->server = "10.107.134.64";*/

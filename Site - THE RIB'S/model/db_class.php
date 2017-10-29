@@ -18,7 +18,8 @@
 
     public function __construct(){
 
-        $this->server = "10.107.134.22";
+        #$this->server = "10.107.134.22";
+        $this->server = "localhost";
         $this->user = "root";
         $this->password = "bcd127";
 

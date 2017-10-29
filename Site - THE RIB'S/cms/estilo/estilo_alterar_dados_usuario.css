@@ -1,0 +1,138 @@
+#conteudo{
+    width:1580px;
+    height:950px;
+    margin-left: 55px;
+    margin-top: 5px;
+    border: solid 1px black;
+}
+#cabecalho_titulo{
+    width:1550px;
+    height:50px;
+    font-size: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
+    border-bottom: solid 4px #9c0404;
+}
+#conteudo_imagem{
+    width:1580px;
+    height:300px;
+    border: solid 1px white;
+}
+.content_foto{
+    float:left;
+    margin-top: 15px;
+    margin-left:100px;
+    border:solid 1px white;
+}
+.foto_perfil{
+    width:250px;
+    height:250px;
+    overflow: hidden;
+    border-radius: 200px;
+    margin-bottom: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 1px black;
+}
+.foto_perfil img{
+    width:250px;
+    height:250px;
+    z-index: 1; 
+}
+.foto_perfil:hover .editar_foto{
+    transition: 0.5s;
+}
+.editar_foto{
+    color:white;
+    z-index: 999;
+    width: 225px;
+    height:60px;
+    display: block;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 190px;
+    margin-left: 5px;
+    border-radius: 0px 0px 225px 225px;
+    border-top: solid 1px rgba(70, 70, 70,  0.5);
+    background-color: rgba(70, 70, 70,  0.5);
+}
+.editar_foto:hover{
+    background-color: rgba(150, 150, 150, 0.5);
+}
+.cadastrar_redes_sociais{
+    width:980px;
+    height:180px;
+    float: right;
+    padding: 10px;
+    margin-right: 100px;
+    margin-top: 28px;
+    font-size: 28px;
+    box-shadow: 0px 0px 20px #505050;
+}
+.icone_circulo{
+    width:50px;
+    height:50px;
+    position: absolute;
+    border-radius:40px;
+    margin-left: 1445px;
+    margin-top: 10px;
+    background-color: white;
+    border: solid 1px black;
+}
+
+#dados_usuario{
+    float: left;
+    width:1166px;
+    height:550px;
+    padding-left: 1px;
+    border: solid 1px white;
+}
+.dados_cadastrados{
+    width: 360px;
+    height: 400px;
+    float: left;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 4px;
+    border: solid 1px white;
+}
+.dados_cadastrados p{
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.dados_cadastrados p input{
+    border-radius: 5px;
+    font-size: 20px;
+}
+.dados_cadastrados p select{
+    border-radius: 5px;
+    font-size: 20px;
+}
+.lado{
+    float: left;
+    padding: 10px;
+}
+.clear{
+    float: left;
+    clear: both;
+}
+
+.botao{
+    color:#9c0404;
+    font-size: 22px;
+    margin-top: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: white;
+    border: solid 2px #9c0404;
+    padding: 6px 12px 6px 12px;
+}
+.botao:hover{
+    color:white;
+    font-size: 22px;
+    margin-top: 30px;
+    background-color: #9c0404;
+}
+
