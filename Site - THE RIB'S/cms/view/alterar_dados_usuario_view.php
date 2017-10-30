@@ -19,6 +19,10 @@
         $cep = $rs->cep;
         $rua = '---'; //$rs->rua;
         $numero = $rs->numero;
+        $bairro = $rs->bairro;
+        $logradouro = $rs->logradouro;
+        $complemento = $rs->complemento;
+        $id_cidade_select = $rs->id_cidade;
         $cont++;
     }
     
@@ -70,6 +74,24 @@
             <p> Estado: </p>
             <p> <select name="slct_estado">
                     <option value="0"> Selecione </option>
+                    <?php 
+                        $controller = new ControllerAlterarDadosUsuario();
+                        $rs = $controller->ListarEstados();
+
+                        if($rs != null){
+                            $cont=0;
+                            while($cont < count($rs)){
+                                $id_estado = $rs[$cont]->id_estado;
+                                $estado = $rs[$cont]->estado;
+                                $select = 'selected';
+
+                    ?>
+                        <option value="<?php echo $id_estado ?>" <?php echo $select ?>> <?php echo $estado; ?> </option>
+                    <?php
+                                $cont++;
+                            }
+                        }
+                    ?>
                 </select> 
             </p>
             <p> Cidade: </p>
@@ -84,8 +106,13 @@
                         while($cont < count($rs)){
                             $id_cidade = $rs[$cont]->id_cidade;
                             $cidade = $rs[$cont]->cidade;
+                            $select = '';
+                            
+                            if($id_cidade_select == $id_cidade){
+                                $select = 'selected';
+                            }
                 ?>
-                    <option value="<?php echo $id_cidade ?>"> <?php echo $cidade; ?> </option>
+                    <option value="<?php echo $id_cidade ?>" <?php echo $select ?>> <?php echo $cidade; ?> </option>
                 <?php
                             $cont++;
                         }
@@ -96,11 +123,11 @@
         </div>
         <div class="dados_cadastrados">
             <p> Bairro: </p>
-            <p> <input type="text" name="txtBairro" size="30" value="<?php echo ' ' ?>"> </p>
+            <p> <input type="text" name="txtBairro" size="30" value="<?php echo $bairro ?>"> </p>
             <p> Logradouro: </p>
-            <p> <input type="text" name="txtLogradouro" size="30" value="<?php echo ' ' ?>"> </p>
+            <p> <input type="text" name="txtLogradouro" size="30" value="<?php echo $logradouro ?>"> </p>
             <p> Complemento: </p>
-            <p> <input type="text" name="txtComplemento" size="30" value="<?php echo ' ' ?>"> </p>
+            <p> <input type="text" name="txtComplemento" size="30" value="<?php echo $complemento ?>"> </p>
             <div class="lado">
                 <p>  N°: </p>
                 <p> <input type="text" name="txtNumero" size="1" value="<?php echo $numero ?>"> </p>

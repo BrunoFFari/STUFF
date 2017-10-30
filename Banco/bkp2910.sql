@@ -313,7 +313,7 @@ CREATE TABLE `tbl_cliente` (
 
 LOCK TABLES `tbl_cliente` WRITE;
 /*!40000 ALTER TABLE `tbl_cliente` DISABLE KEYS */;
-INSERT INTO `tbl_cliente` VALUES (1,'Llala','(11) 4202-8396','(11) 95118-1978','bruno27@uol.com','44417658862','bcd127','http://www.media.inaf.it/wp-content/uploads/2014/02/Einstein_laughing.jpeg'),(2,'haghagshdgahsgh','(11) 4202-8396','(11) 95118-1978','bruno@uol.com','444.176.588-62','123456','imagens/download.jpg'),(3,'diego','42028396','11992965490','bubu-diego@hotmail.com','444.176.588-62','152115','http://www.media.inaf.it/wp-content/uploads/2014/02/Einstein_laughing.jpeg');
+INSERT INTO `tbl_cliente` VALUES (1,'Llala','(11) 4202-8396','(11) 95118-1978','bruno27@uol.com','44417658862','bcd127','imagens/5.png'),(2,'haghagshdgahsgh','(11) 4202-8396','(11) 95118-1978','bruno@uol.com','444.176.588-62','123456','imagens/download.jpg'),(3,'diego','42028396','11992965490','bubu-diego@hotmail.com','444.176.588-62','152115','http://www.media.inaf.it/wp-content/uploads/2014/02/Einstein_laughing.jpeg');
 /*!40000 ALTER TABLE `tbl_cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -557,7 +557,7 @@ CREATE TABLE `tbl_endereco` (
 
 LOCK TABLES `tbl_endereco` WRITE;
 /*!40000 ALTER TABLE `tbl_endereco` DISABLE KEYS */;
-INSERT INTO `tbl_endereco` VALUES (1,'526341',NULL,'Rua teste',1,'aaa',1);
+INSERT INTO `tbl_endereco` VALUES (1,'526341','','Rua teste',3,'KID INK',1);
 /*!40000 ALTER TABLE `tbl_endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -836,12 +836,14 @@ DROP TABLE IF EXISTS `tbl_funcionario`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbl_funcionario` (
   `id_funcionario` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `celular` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `id_funcao` int(11) NOT NULL,
   `id_restaurante` int(11) NOT NULL,
-  `senha` varchar(50) DEFAULT NULL,
+  `senha` varchar(50) NOT NULL,
+  `foto` varchar(200) NOT NULL,
   PRIMARY KEY (`id_funcionario`),
   KEY `fk_restaurante_funcionario_idx` (`id_restaurante`),
   KEY `fk_funcao_funcionario_idx` (`id_funcao`),
@@ -856,7 +858,7 @@ CREATE TABLE `tbl_funcionario` (
 
 LOCK TABLES `tbl_funcionario` WRITE;
 /*!40000 ALTER TABLE `tbl_funcionario` DISABLE KEYS */;
-INSERT INTO `tbl_funcionario` VALUES (1,'Marcelo Bruno','951181978','bruno@uol.com',1,10,'741'),(2,'Patati','50505050','patati@email.com',2,11,'321'),(3,'Patata','40404040','patata@email.com',2,11,'543');
+INSERT INTO `tbl_funcionario` VALUES (1,224,'Marcelo Bruno','951181978','bruno@uol.com',1,10,'741','imagens/Capturar.JPG'),(2,557,'Patati','50505050','patati@email.com',2,11,'321','imagens/chef3.jpg'),(4,985,'usuario','11954335674','asdf@gmail.com',1,11,'321','imagens/back-cadastro.png'),(5,852,'the weeknd','11954335674','teste@email.com',2,11,'senha','imagens/estrela.png');
 /*!40000 ALTER TABLE `tbl_funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1095,7 +1097,7 @@ CREATE TABLE `tbl_imagem` (
   `id_imagem` int(11) NOT NULL AUTO_INCREMENT,
   `url` varchar(100) NOT NULL,
   PRIMARY KEY (`id_imagem`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1104,7 +1106,7 @@ CREATE TABLE `tbl_imagem` (
 
 LOCK TABLES `tbl_imagem` WRITE;
 /*!40000 ALTER TABLE `tbl_imagem` DISABLE KEYS */;
-INSERT INTO `tbl_imagem` VALUES (1,'../fotos/2bdac302b7adaae4a62ce3d7ed3cc8c1.png'),(2,'../fotos/15983e5daac7fd7c4675a278ce155a21.jpg'),(3,'../fotos/c2ab0c753b181d0a6f05243c8ac9eb2a.png'),(4,'../fotos/35393e0e13c8f3b20a9317d38e7c58f8.JPG'),(5,'../fotos/e247cb3bcda3c3e407647e761f5391c9.png'),(6,'../fotos/6fa22ec3c521bed88906cb26c21785d1.png'),(7,'../fotos/2bb44127636b62da139f256ceb75647e.png'),(8,'../fotos/246279a08f9bec70dfdd00cd9fc37bae.jpg'),(9,'../fotos/fd23ca818a24a3850f277f0f7b93dbbd.png'),(10,'../fotos/0ce26d8b216b928995b2a7a1cab57305.png'),(11,'../fotos/a1b5fc9aad1d7c565d6206971f3b49c2.jpg'),(12,'../fotos/0fbba57ed26e4224490a3e4f4c17bfa7.png'),(13,'../fotos/189e4ff5f07625114c3ba15e1d0883ff.png'),(14,'../fotos/fcbad07af16362f7cf520c9b564d55dd.png'),(15,'../fotos/2227c8ccce948438e1cf71a51a703ea3.jpg'),(16,'../fotos/5e20943770dc3ff905e4694233fca9dd.png'),(17,'../fotos/60eeb4304b34b8d25c8c3c4b7020678a.jpg'),(18,'11'),(19,'../fotos/2f69c23ce92c424bfa2283f51141e270.png'),(20,'../fotos/56ec354732e9837b1181c457ee52f236.jpg'),(21,'../fotos/840b75e18690181e1c7f52fffb968f1f.png'),(22,'../fotos/b3a5d1766e5f53499f643d4d3aff1442.png'),(23,'../fotos/1a9468a0b845ebcdcdd29386e893f689.jpg'),(24,'../fotos/d82b32f04fd611b0d9d46fe2f2f948b8.jpg'),(25,'../fotos/c7d6bf09faad4c87e641d436b79d5ee0.jpg'),(26,'456'),(27,'../fotos/4a0eb79d635d94cd88d2826e1c02308b.JPG'),(28,'../fotos/affef78e18c663ba27a419e0ed1357ea.jpg'),(29,'../fotos/02324f125c5b7be5e75aab391896ad43.jpg'),(30,'645'),(31,'../fotos/8ab148c49288d3d984d2e016ce1c7889.png'),(32,'../fotos/9b2183a184cb058901240220789763ef.jpg'),(33,'../fotos/664c7d9202b6ea9613a05f49022ddc4c.jpg'),(34,'imagens/download.jpg'),(35,'../fotos/7c2109b90a0ab5c7ea66ab601791c237.jpg'),(36,'../fotos/770603b571825458f68f2002870363e9.png'),(37,'imagens/java.png'),(40,'imagens/html.png'),(41,''),(42,'../fotos/16eed85bede7014e7f7e6cbe127c7f4f.png'),(43,''),(44,'../fotos/a8f2151f2eaf6dc2de4145d78fb3a309.png'),(45,''),(46,'../fotos/1b3805bd8a4fac81e0b059b17349cc90.PNG'),(47,'imagens/back-contato.png'),(48,'imagens/back-cardapio.png'),(49,'imagens/bcak-contato.png'),(50,'../fotos/0f9fb9925caf7e1d40e20fa2fcd303ff.png'),(51,'../fotos/848f3ed0a1e251ebd2916244c3c8af6f.png'),(52,'../fotos/7ada2a7a707efd91a4e3360979a38660.png'),(53,'../fotos/16abf4c6ab80fa7e0e9a1f45592ef87c.PNG'),(54,'../fotos/54d821603f6e0e12f2eb596d1ad8252a.png'),(55,'../fotos/37ac4ac9792085108d222ccc3226fbab.png'),(56,'imagens/back-cardapio.png'),(57,'../fotos/4475f04f964136b92d5e15076ea80b67.png'),(58,'../fotos/5f218c2b935285e575a9d49eb906ba68.png'),(59,'../fotos/92124b143dc2ca89eaa874dca8874224.png'),(60,'../fotos/6b1d3d189ff73a6a9df471cb86bb5519.PNG'),(61,'../fotos/6454accab40a600ee81f08922850b17b.png'),(62,'../fotos/b14a0c1f7c7b876413382938ec4118ac.png'),(63,'imagens/carne.jpg'),(64,''),(65,'../fotos/fb8b94c058595bf9c88b10d3920ac623.png'),(66,''),(67,'../fotos/f1ab99c912afc2ec4665ecf9c2870179.png'),(68,''),(69,'../fotos/9667f732d060bdfd7a42bae63222340c.png'),(70,'../fotos/1534f1227f40c243795ffa0d0cfd4d49.png'),(71,'../fotos/4bf2192fa4f2dc1f6d854972c32efe00.png'),(72,'../fotos/91a6fecf932e131c325a5a0393377dd9.jpg'),(73,'../fotos/9c17f474a7abbed77296476c9e290f95.PNG'),(74,'../fotos/f7f8fee5880a3f65f35c80dc6bb668a8.png'),(75,'../fotos/6bef70893c13676993ad55184c12f20c.png'),(76,'novo'),(77,'../fotos/ac60e0b073c38c01550fd0a6d181f4e8.png'),(78,'imagens/carne-vegetais.jpg'),(83,'imagens/Capturar.JPG'),(84,'imagens/Capturar.JPG'),(85,'imagens/Capturar.JPG'),(86,'imagens/Capturar.JPG'),(87,'imagens/carne-vegetais.jpg'),(88,'imagens/chef1.jpg'),(89,'imagens/carne-vegetais.jpg'),(90,'imagens/carne-vegetais.jpg'),(91,'imagens/img5.jpg'),(92,'imagens/carne.jpg'),(94,'imagens/5.png'),(95,'../fotos/1807d7e2f30a3ed4b3b5c8243cb16ef0.jpg'),(96,'../fotos/2ec82845c8c2aafcaab38ba5541e2b47.jpg'),(97,'../fotos/0d47921f526d7a418f6541d9f9bdf0b7.jpg'),(98,'../fotos/a8fd30aace4ca8cf05c25bc81ae0b8d4.jpg'),(99,'../fotos/7006c278441689f45d9247f97cb4560a.jpg'),(100,'../fotos/94cb809f52ae0df7cb3644a048ca7b37.jpg'),(101,'imagens/6.png'),(102,'imagens/back-cardapio.png'),(103,'imagens/Capturar.JPG'),(104,'imagens/img5.jpg');
+INSERT INTO `tbl_imagem` VALUES (1,'../fotos/2bdac302b7adaae4a62ce3d7ed3cc8c1.png'),(2,'../fotos/15983e5daac7fd7c4675a278ce155a21.jpg'),(3,'../fotos/c2ab0c753b181d0a6f05243c8ac9eb2a.png'),(4,'../fotos/35393e0e13c8f3b20a9317d38e7c58f8.JPG'),(5,'../fotos/e247cb3bcda3c3e407647e761f5391c9.png'),(6,'../fotos/6fa22ec3c521bed88906cb26c21785d1.png'),(7,'../fotos/2bb44127636b62da139f256ceb75647e.png'),(8,'../fotos/246279a08f9bec70dfdd00cd9fc37bae.jpg'),(9,'../fotos/fd23ca818a24a3850f277f0f7b93dbbd.png'),(10,'../fotos/0ce26d8b216b928995b2a7a1cab57305.png'),(11,'../fotos/a1b5fc9aad1d7c565d6206971f3b49c2.jpg'),(12,'../fotos/0fbba57ed26e4224490a3e4f4c17bfa7.png'),(13,'../fotos/189e4ff5f07625114c3ba15e1d0883ff.png'),(14,'../fotos/fcbad07af16362f7cf520c9b564d55dd.png'),(15,'../fotos/2227c8ccce948438e1cf71a51a703ea3.jpg'),(16,'../fotos/5e20943770dc3ff905e4694233fca9dd.png'),(17,'../fotos/60eeb4304b34b8d25c8c3c4b7020678a.jpg'),(18,'11'),(19,'../fotos/2f69c23ce92c424bfa2283f51141e270.png'),(20,'../fotos/56ec354732e9837b1181c457ee52f236.jpg'),(21,'../fotos/840b75e18690181e1c7f52fffb968f1f.png'),(22,'../fotos/b3a5d1766e5f53499f643d4d3aff1442.png'),(23,'../fotos/1a9468a0b845ebcdcdd29386e893f689.jpg'),(24,'../fotos/d82b32f04fd611b0d9d46fe2f2f948b8.jpg'),(25,'../fotos/c7d6bf09faad4c87e641d436b79d5ee0.jpg'),(26,'456'),(27,'../fotos/4a0eb79d635d94cd88d2826e1c02308b.JPG'),(28,'../fotos/affef78e18c663ba27a419e0ed1357ea.jpg'),(29,'../fotos/02324f125c5b7be5e75aab391896ad43.jpg'),(30,'645'),(31,'../fotos/8ab148c49288d3d984d2e016ce1c7889.png'),(32,'../fotos/9b2183a184cb058901240220789763ef.jpg'),(33,'../fotos/664c7d9202b6ea9613a05f49022ddc4c.jpg'),(34,'imagens/download.jpg'),(35,'../fotos/7c2109b90a0ab5c7ea66ab601791c237.jpg'),(36,'../fotos/770603b571825458f68f2002870363e9.png'),(37,'imagens/java.png'),(40,'imagens/html.png'),(41,''),(42,'../fotos/16eed85bede7014e7f7e6cbe127c7f4f.png'),(43,''),(44,'../fotos/a8f2151f2eaf6dc2de4145d78fb3a309.png'),(45,''),(46,'../fotos/1b3805bd8a4fac81e0b059b17349cc90.PNG'),(47,'imagens/back-contato.png'),(48,'imagens/back-cardapio.png'),(49,'imagens/bcak-contato.png'),(50,'../fotos/0f9fb9925caf7e1d40e20fa2fcd303ff.png'),(51,'../fotos/848f3ed0a1e251ebd2916244c3c8af6f.png'),(52,'../fotos/7ada2a7a707efd91a4e3360979a38660.png'),(53,'../fotos/16abf4c6ab80fa7e0e9a1f45592ef87c.PNG'),(54,'../fotos/54d821603f6e0e12f2eb596d1ad8252a.png'),(55,'../fotos/37ac4ac9792085108d222ccc3226fbab.png'),(56,'imagens/back-cardapio.png'),(57,'../fotos/4475f04f964136b92d5e15076ea80b67.png'),(58,'../fotos/5f218c2b935285e575a9d49eb906ba68.png'),(59,'../fotos/92124b143dc2ca89eaa874dca8874224.png'),(60,'../fotos/6b1d3d189ff73a6a9df471cb86bb5519.PNG'),(61,'../fotos/6454accab40a600ee81f08922850b17b.png'),(62,'../fotos/b14a0c1f7c7b876413382938ec4118ac.png'),(63,'imagens/carne.jpg'),(64,''),(65,'../fotos/fb8b94c058595bf9c88b10d3920ac623.png'),(66,''),(67,'../fotos/f1ab99c912afc2ec4665ecf9c2870179.png'),(68,''),(69,'../fotos/9667f732d060bdfd7a42bae63222340c.png'),(70,'../fotos/1534f1227f40c243795ffa0d0cfd4d49.png'),(71,'../fotos/4bf2192fa4f2dc1f6d854972c32efe00.png'),(72,'../fotos/91a6fecf932e131c325a5a0393377dd9.jpg'),(73,'../fotos/9c17f474a7abbed77296476c9e290f95.PNG'),(74,'../fotos/f7f8fee5880a3f65f35c80dc6bb668a8.png'),(75,'../fotos/6bef70893c13676993ad55184c12f20c.png'),(76,'novo'),(77,'../fotos/ac60e0b073c38c01550fd0a6d181f4e8.png'),(78,'imagens/carne-vegetais.jpg'),(83,'imagens/Capturar.JPG'),(84,'imagens/Capturar.JPG'),(85,'imagens/Capturar.JPG'),(86,'imagens/Capturar.JPG'),(87,'imagens/carne-vegetais.jpg'),(88,'imagens/chef1.jpg'),(89,'imagens/carne-vegetais.jpg'),(90,'imagens/carne-vegetais.jpg'),(91,'imagens/img5.jpg'),(92,'imagens/carne.jpg'),(94,'imagens/5.png'),(95,'../fotos/1807d7e2f30a3ed4b3b5c8243cb16ef0.jpg'),(96,'../fotos/2ec82845c8c2aafcaab38ba5541e2b47.jpg'),(97,'../fotos/0d47921f526d7a418f6541d9f9bdf0b7.jpg'),(98,'../fotos/a8fd30aace4ca8cf05c25bc81ae0b8d4.jpg'),(99,'../fotos/7006c278441689f45d9247f97cb4560a.jpg'),(100,'../fotos/94cb809f52ae0df7cb3644a048ca7b37.jpg'),(101,'imagens/6.png'),(102,'imagens/back-cardapio.png'),(103,'imagens/Capturar.JPG'),(104,'imagens/img5.jpg'),(105,'imagens/costelinha_de_porco.jpg'),(106,'imagens/0foa.jpg');
 /*!40000 ALTER TABLE `tbl_imagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1510,7 +1512,7 @@ CREATE TABLE `tbl_produto` (
   PRIMARY KEY (`id_produto`),
   KEY `fk_tipo_produto_idx` (`tipo_produto`),
   CONSTRAINT `fk_tipo_produto` FOREIGN KEY (`tipo_produto`) REFERENCES `tbl_tipo_produto` (`id_tipo_produto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1519,7 +1521,7 @@ CREATE TABLE `tbl_produto` (
 
 LOCK TABLES `tbl_produto` WRITE;
 /*!40000 ALTER TABLE `tbl_produto` DISABLE KEYS */;
-INSERT INTO `tbl_produto` VALUES (1,'Picanha ao forno',30,'Carne',1),(2,'suco',5,'Suco de morango',4),(18,'Funciooonaaaa',20,'aaaaaaaa',3),(20,'Teste',15,'aaaaaaaa',4),(21,'123 Testando',18,'sfedg dht tsh',3),(22,'123 Testando',18,'sfedg dht tsh',3),(23,'123 Testando',18,'sfedg dht tsh',3),(24,'123 Testando',18,'sfedg dht tsh',3),(25,'bbbbb',12,'sadasd',4),(26,'bbbbb',18,'arfrsygrt6u',1),(27,'Não sei',20,'afssfrghthj',4);
+INSERT INTO `tbl_produto` VALUES (1,'Picanha ao forno',30,'Carne',1),(2,'suco',5,'Suco de morango',4),(18,'Funciooonaaaa',20,'aaaaaaaa',3),(20,'Teste',15,'aaaaaaaa',4),(21,'123 Testando',18,'sfedg dht tsh',3),(22,'123 Testando',18,'sfedg dht tsh',3),(23,'123 Testando',18,'sfedg dht tsh',3),(24,'123 Testando',18,'sfedg dht tsh',3),(25,'bbbbb',12,'sadasd',4),(26,'bbbbb',18,'arfrsygrt6u',1),(27,'Não sei',20,'afssfrghthj',4),(28,'exemplo',20,'Teste teste ',3),(29,'lalaa',82,'aaaaa',3);
 /*!40000 ALTER TABLE `tbl_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1542,7 +1544,7 @@ CREATE TABLE `tbl_produto_img` (
 
 LOCK TABLES `tbl_produto_img` WRITE;
 /*!40000 ALTER TABLE `tbl_produto_img` DISABLE KEYS */;
-INSERT INTO `tbl_produto_img` VALUES (3,78),(4,86),(4,87),(4,87),(4,87),(4,88),(4,89),(4,90),(4,91),(19,92),(20,94),(25,101),(26,103),(27,104);
+INSERT INTO `tbl_produto_img` VALUES (3,78),(4,86),(4,87),(4,87),(4,87),(4,88),(4,89),(4,90),(4,91),(19,92),(20,94),(25,101),(26,103),(27,104),(28,105),(29,106);
 /*!40000 ALTER TABLE `tbl_produto_img` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1570,7 +1572,7 @@ CREATE TABLE `tbl_produto_ingrediente` (
 
 LOCK TABLES `tbl_produto_ingrediente` WRITE;
 /*!40000 ALTER TABLE `tbl_produto_ingrediente` DISABLE KEYS */;
-INSERT INTO `tbl_produto_ingrediente` VALUES (1,1,3),(1,1,1),(1,1,2),(2,20,3),(12,25,1),(12,25,2),(7,26,1),(3,26,5),(2,27,7);
+INSERT INTO `tbl_produto_ingrediente` VALUES (1,1,3),(1,1,1),(1,1,2),(2,20,3),(12,25,1),(12,25,2),(7,26,1),(3,26,5),(2,27,7),(5,29,3);
 /*!40000 ALTER TABLE `tbl_produto_ingrediente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1597,7 +1599,7 @@ CREATE TABLE `tbl_produto_restaurante` (
 
 LOCK TABLES `tbl_produto_restaurante` WRITE;
 /*!40000 ALTER TABLE `tbl_produto_restaurante` DISABLE KEYS */;
-INSERT INTO `tbl_produto_restaurante` VALUES (25,10),(25,10),(26,10),(27,10),(27,11),(27,10),(27,11);
+INSERT INTO `tbl_produto_restaurante` VALUES (25,10),(25,10),(26,10),(27,10),(27,11),(27,10),(27,11),(29,12);
 /*!40000 ALTER TABLE `tbl_produto_restaurante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1615,7 +1617,7 @@ CREATE TABLE `tbl_produto_tipo_prato` (
   KEY `fk_produto_tipo_prato` (`id_produto`),
   CONSTRAINT `fk_produto_tipo_prato` FOREIGN KEY (`id_produto`) REFERENCES `tbl_produto` (`id_produto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tipo_prato_produto` FOREIGN KEY (`id_tipo_prato`) REFERENCES `tbl_tipo_prato` (`id_tipo_prato`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1624,7 +1626,7 @@ CREATE TABLE `tbl_produto_tipo_prato` (
 
 LOCK TABLES `tbl_produto_tipo_prato` WRITE;
 /*!40000 ALTER TABLE `tbl_produto_tipo_prato` DISABLE KEYS */;
-INSERT INTO `tbl_produto_tipo_prato` VALUES (20,2),(21,2),(22,2),(23,2),(24,2),(25,1),(26,1),(27,1);
+INSERT INTO `tbl_produto_tipo_prato` VALUES (20,2),(21,2),(22,2),(23,2),(24,2),(25,1),(26,1),(27,1),(28,1),(29,1);
 /*!40000 ALTER TABLE `tbl_produto_tipo_prato` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2099,4 +2101,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-29 13:46:31
+-- Dump completed on 2017-10-29 22:45:51

@@ -27,6 +27,13 @@ class ControllerAlterarDadosUsuario{
         return $result;
     }
     
+    public function ListarEstados(){
+        $dados_class = new AlterarDadosUsuario();
+        $result = $dados_class->SelectEstados();
+       
+        return $result;
+    }
+    
     public function AlterarSenha(){
         $dados_class = new AlterarDadosUsuario();
        

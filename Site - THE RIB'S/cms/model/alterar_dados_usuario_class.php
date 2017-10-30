@@ -18,6 +18,8 @@ class AlterarDadosUsuario{
     public $foto;
     public $id_cidade;
     public $cidade;
+    public $id_estado;
+    public $estado;
     
     function __construct(){
         require_once('model/db_class.php');
@@ -50,6 +52,7 @@ class AlterarDadosUsuario{
                 $user->numero = $rs['numero'];
                 $user->bairro = $rs['bairro'];
                 $user->cidade = $rs['cidade'];
+                $user->id_cidade = $rs['id_cidade'];
                 $user->logradouro = $rs['logradouro'];
                 $user->complemento = $rs['complemento'];
             }
@@ -83,6 +86,29 @@ class AlterarDadosUsuario{
     
     }
       
+    public function SelectEstados(){
+
+        $sql = 'select * from tbl_estado';
+        
+        if($select = mysql_query($sql)){
+            
+            $cont = 0;
+            while($rs = mysql_fetch_array($select)){
+                
+                $estado[] = new AlterarDadosUsuario();
+                
+                $estado[$cont]->id_estado = $rs['id_estado'];
+                $estado[$cont]->estado = $rs['estado'];
+                
+                $cont++;
+            }
+            
+            return $estado;
+            
+        }
+    
+    }
+      
     public function UpdateDadosUsuario(){
         $id = $_GET['id'];
         
@@ -104,7 +130,38 @@ class AlterarDadosUsuario{
                 cpf = "'.$cpf.'", telefone = "'.$telefone.'", celular = "'.$celular.'"
                 where id_cliente = '.$id;
             
-             
+             if(mysql_query($sql)){
+                $sql = "select ce.* from tbl_cliente_endereco as ce
+                        inner join tbl_endereco as e
+                        on ce.id_endereco = e.id_endereco
+                        inner join tbl_cliente as c
+                        on ce.id_cliente = c.id_cliente
+                        where c.id_cliente = ".$id;
+                        
+                if($select = mysql_query($sql)){
+                    while($rs = mysql_fetch_array($select)){
+                        $id_endereco = $rs['id_endereco']; 
+                    }
+                    
+                }
+                        
+                $sql="update tbl_endereco set cep = '".$cep."', 
+                     bairro = '".$bairro."', numero = ".$numero.",
+                     complemento = '".$complemento."',
+                     logradouro = '".$logradouro."', id_cidade = ".$id_cidade." 
+                     where id_endereco = ".$id_endereco;
+                    
+                if(mysql_query($sql)){
+                    header('location:alterar_dados_usuario.php');
+
+                }else{
+                    echo $sql;
+                }
+
+             }else{
+                echo $sql;
+            }
+            
             if(mysql_query($sql)){
                 header('location:alterar_dados_usuario.php');
 

@@ -10,7 +10,7 @@
 header{
     width: 1850px;
     height:80px;
-    font-size: 30px;
+    font-size: 35px;
     padding-top: 40px;
     padding-left: 50px;
     border: solid 1px blue;
@@ -23,25 +23,23 @@ nav{
 }
 section{
     float: left;
-    width:1600px;
-    height:820px;
+    width:1590px;
+    height:880px;
+    padding-left: 10px;
     border: solid 1px black;
 }
-#novo_funcionario{
-    width:1530px;
-    height:750px;
-    padding: 20px;
-    border: solid 1px #FFF;
+.content_divisao{
+    width: 830px;
+    height:360px;
+    padding: 10px 0px 0px 10px;
+    border: solid 1px white;
 }
-.content_lado{
+.content_dados_funcionario{
     float: left;
-    width: 700px;
-    height:560px;
-    padding: 10px 40px 10px 40px;
-    border: solid 1px transparent;
+    width: 400px;
+    border: solid 1px white;
 }
 .lado{
-    margin: 10px;
     float: left;
     font-size: 25px;
 }
@@ -53,6 +51,7 @@ section{
     font-size: 16px;
     border-radius: 4px;
     margin-bottom: 20px;
+    margin-left: 5px;
 }
 .lado select{
     font-size: 16px;
@@ -60,9 +59,14 @@ section{
     margin-bottom: 20px;
 }
 .ver_foto_funcionario{
+    padding: 1px;
     width:250px;
     height:280px;
     border: solid 1px black;
+}
+.ver_foto_funcionario img{
+    width:250px;
+    max-height:280px;
 }
 .addImagem{
     width:250px;
@@ -71,6 +75,7 @@ section{
     position: absolute;
 }
 .botao{
+    text-decoration: none;
     color:#9c0404;
     font-size: 22px;
     margin-top: 20px;
@@ -85,20 +90,39 @@ section{
 }
 #todos_funcionario{
     float: right;
-    width:600px;
-    height:720px;
+    width:690px;
+    height:750px;
     padding: 20px;
-    border: solid 1px black;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: solid 1px #C0C0C0;
 }
 .titulo{
     font-size: 28px;
     margin-bottom: 15px;
+    color: #9c0404;
+    font-weight: bold;
 }
 #lista_funcionarios{
-    width:600px;
+    width:700px;
     height:680px;
     overflow-y: scroll;
     border: solid 1px #FFF;
+}
+.tbl_funcionarios{
+    width:670px;  
+}
+.tbl_funcionarios tr td{
+    font-size: 22px;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.titulo_tbl td{
+    font-size: 20px;
+    color: #9c0404;
 }
 
 

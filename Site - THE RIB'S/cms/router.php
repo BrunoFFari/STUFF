@@ -591,6 +591,32 @@
          }
 
         break;
+          
+      case 'funcionario':
+          require_once('controller/funcionarios_controller.php');
+
+          $controller_user = new ControllerFuncinarios();
+
+          switch ($modo){
+
+            case 'inserir':
+                $controller_user->CadastrarFuncionario();
+                break;
+
+            case 'alterar':
+                $controller_user->EditarFuncionario();
+                break;
+
+            case 'excluir':
+                $controller_user->ExcluirFuncionario();
+                break;
+
+            default:
+                echo '<h1> Não encontrado </h1>';
+                break;
+         }
+
+        break;
   }
 
 ?>
