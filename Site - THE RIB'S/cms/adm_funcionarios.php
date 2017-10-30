@@ -9,9 +9,6 @@
         <header> 
             Sistema de gerenciamento de conteudo
         </header>
-        <nav>
-            
-        </nav>
         <section>
             <?php require_once('view/funcionarios_view.php'); ?>
         </section>

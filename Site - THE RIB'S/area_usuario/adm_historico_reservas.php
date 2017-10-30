@@ -9,7 +9,7 @@
   </head>
   <body>
     <section id="menu">
-      <?php require_once('view/menu_lateral_area_do_usuario_view.php'); ?>
+      <?php /* require_once('view/menu_lateral_area_do_usuario_view.php'); */?>
     </section>
     <section id="conteudo">
       <?php require_once('view/historico_reservas_view.php'); ?>

@@ -140,10 +140,11 @@
                 if($_GET['erro'] == 'codigo'){
             ?>
             <div class="content_dados_funcionario"> 
-                
-                <center><span style="color:#9c0404"> Este código pertence a outro funcionário </span></center>
-                <br>
-                <center> <a href="adm_funcionarios.php" class="botao"> OK </a> </center>
+                <div class="alerta">
+                    <p><span> Este código já pertence a um funcionário </span></p>
+                    
+                     <a href="adm_funcionarios.php" class="botao"> OK </a> 
+                </div>
             </div>
                 
             <?php
